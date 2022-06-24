@@ -1,11 +1,32 @@
 package dictionary.controller;
 
-import dictionary.repository.DictionaryRepositoryImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class TranslateController {
-    @Autowired
-    private DictionaryRepositoryImpl dictionaryRepository;
+    @GetMapping("/translate")
+    public String showTranslateForm() {
+        return "translate";
+    }
+
+    @PostMapping("/translate")
+    public ModelAndView translate(@RequestParam String englishWord, Model model) {
+        Map<String, String> map = new HashMap<>();
+        map.put("hello", "xin chào");
+        map.put("goodbye", "tạm biệt");
+        map.put("apple", "quả táo");
+        map.put("sorry", "xin lỗi");
+        ModelAndView modelAndView = new ModelAndView("result");
+        model.addAttribute("result", map.get(englishWord));
+        return modelAndView;
+    }
 }

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Phuong
-  Date: 6/22/2022
-  Time: 8:48 PM
+  Date: 6/24/2022
+  Time: 6:05 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -12,7 +12,7 @@
     <title>Result</title>
 </head>
 <body>
-<h1>Result: ${vnd}</h1>
-<a href="/convert">Back to convert form</a>
+<div style="color: blue; text-decoration: none">Mean: ${result}</div>
+<a href="/translate">Back to translate form</a>
 </body>
 </html>
